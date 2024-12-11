@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Granth Agarwal - Python Developer</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+        <style>
+            :root {
+                --bg-primary: #0a192f;
+                --bg-secondary: #112240;
+                --text-primary: #e6f1ff;
+                --text-secondary: #8892b0;
+                --accent-color: #64ffda;
+            }
+            
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Inter', 'Arial', sans-serif;
+            }
+            
+            body {
+                background-color: var(--bg-primary);
+                color: var(--text-primary);
+                line-height: 1.6;
+                scroll-behavior: smooth;
+            }
+            
+            .container {
+                width: 90%;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+            
+            header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px 50px;
+                position: fixed;
+                width: 100%;
+                background-color: rgba(10, 25, 47, 0.85);
+                z-index: 1000;
+                backdrop-filter: blur(10px);
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+                font-weight: bold;
+                color: var(--accent-color);
+            }
+            
+            .nav-links {
+                display: flex;
+                gap: 30px;
+            }
+            
+            .nav-links a {
+                color: var(--text-primary);
+                text-decoration: none;
+                transition: color 0.3s ease;
+                position: relative;
+            }
+            
+            .nav-links a::after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 2px;
+                bottom: -5px;
+                left: 0;
+                background-color: var(--accent-color);
+                transition: width 0.3s ease;
+            }
+            
+            .nav-links a:hover::after {
+                width: 100%;
+            }
+            
+            .hero {
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 0 50px;
+                background-color: var(--bg-primary);
+            }
+            
+            .hero-content {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+            
+            .hero h1 {
+                font-size: 4rem;
+                color: var(--accent-color);
+                margin-bottom: 20px;
+            }
+            
+            .hero h2 {
+                font-size: 3rem;
+                color: var(--text-primary);
+                margin-bottom: 10px;
+            }
+            
+            .hero p {
+                max-width: 600px;
+                color: var(--text-secondary);
+                font-size: 1.1rem;
+            }
+            
+            .hero-image {
+                width: 350px;
+                height: auto;
+                border-radius: 10px;
+            }
+            
+            .section {
+                background-color: var(--bg-secondary);
+                margin: 50px 0;
+                padding: 50px;
+                border-radius: 10px;
+            }
+            
+            .section h3 {
+                color: var(--accent-color);
+                margin-bottom: 30px;
+                font-size: 2rem;
+                position: relative;
+                padding-bottom: 10px;
+            }
+            
+            .section h3::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100px;
+                height: 3px;
+                background-color: var(--accent-color);
+            }
+            
+            .skills {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            
+            .skill-tag {
+                background-color: rgba(100, 255, 218, 0.1);
+                color: var(--accent-color);
+                padding: 8px 15px;
+                border-radius: 5px;
+                font-size: 0.9rem;
+                border: 1px solid var(--accent-color);
+            }
+            
+            .projects {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 30px;
+            }
+            
+            .project {
+                background-color: var(--bg-secondary);
+                border: 1px solid var(--accent-color);
+                padding: 25px;
+                border-radius: 10px;
+                transition: transform 0.3s ease;
+            }
+            
+            .project:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
+            }
+            
+            .project h4 {
+                color: var(--accent-color);
+                margin-bottom: 15px;
+            }
+            
+            .contact-links {
+                display: flex;
+                justify-content: center;
+                gap: 30px;
+                margin-top: 30px;
+            }
+            
+            .contact-links a {
+                color: var(--text-primary);
+                font-size: 2rem;
+                transition: color 0.3s ease, transform 0.3s ease;
+            }
+            
+            .contact-links a:hover {
+                color: var(--accent-color);
+                transform: scale(1.2);
+            }
+            
+            @media (max-width: 768px) {
+                .hero, header {
+                    padding: 20px;
+                }
+                
+                .hero h1 {
+                    font-size: 2.5rem;
+                }
+                
+                .hero h2 {
+                    font-size: 2rem;
+                }
+                
+                .nav-links {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="logo">GA</div>
+            <nav class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+        
+        <section class="hero">
+            <div class="hero-content">
+                <div>
+                    <h1>Hey, I'm Granth Agarwal</h1>
+                    <h2>Python Developer & Software Engineer</h2>
+                    <p>A passionate computer science student specializing in Python development, web technologies, and creating innovative software solutions. I'm dedicated to building efficient, scalable applications that solve real-world problems.</p>
+                </div>
+                <img src="3d-image.png" alt="3D illustration of a boy with a laptop" class="hero-image">
+            </div>
+        </section>
+        
+        <div class="container">
+            <section id="about" class="section">
+                <h3>About Me</h3>
+                <p>I'm a B.Tech Computer Science student at ABES Engineering College, Ghaziabad, with a deep passion for Python development and software engineering. My expertise spans web development, scripting, and creating robust technical solutions. I thrive on challenging projects that push the boundaries of technology and innovation.</p>
+            </section>
+            
+            <section id="skills" class="section">
+                <h3>Skills</h3>
+                <div class="skills">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Flask</span>
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">GitHub</span>
+                    <span class="skill-tag">Figma</span>
+                    <span class="skill-tag">Netlify</span>
+                    <span class="skill-tag">Heroku</span>
+                    <span class="skill-tag">Docker</span>
+                </div>
+            </section>
+            
+            <section id="projects" class="section">
+                <h3>Projects</h3>
+                <div class="projects">
+                    <div class="project">
+                        <h4>Credential Security Tool</h4>
+                        <p>Developed an intelligent Git pre-commit security tool using Python to automatically detect and prevent sensitive credential exposure. Implemented multi-pattern secret identification and configurable detection strategies.</p>
+                    </div>
+                    <div class="project">
+                        <h4>Discord Interaction Bot</h4>
+                        <p>Created an advanced Discord bot with secure API integration, featuring modular Python architecture. Implemented automated message responses and a robust deployment workflow with comprehensive error handling.</p>
+                    </div>
+                    <div class="project">
+                        <h4>Banking Management System</h4>
+                        <p>Designed a comprehensive banking application with secure user authentication, modular financial operations, and an interactive CLI. Developed with scalability and potential database integration in mind.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="contact" class="section">
+                <h3>Contact Me</h3>
+                <div class="contact-links">
+                    <a href="https://www.linkedin.com/in/granth-agarwal/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/hey-granth" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="mailto:heygranth@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </section>
+        </div>
+    </body>
+</html>
